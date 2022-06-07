@@ -1,3 +1,6 @@
+//The display
+const screen = document.querySelector("#screen");
+
 // add
 const add = function (a, b) {
   return a + b;
@@ -40,3 +43,19 @@ function operate(op, a, b) {
   }
   return result;
 }
+
+// Function to populate the display when a number clicker
+function display() {
+  // get the numbers
+  const numbers = document.querySelectorAll(".number");
+
+  // Add an event listener to the buttons with class number
+  let a = "";
+  numbers.forEach((number) =>
+    number.addEventListener("click", (e) => {
+      console.log((a += e.target.textContent));
+      screen.textContent = a;
+    })
+  );
+}
+display();
